@@ -18,7 +18,7 @@ public class CalcDist {
 
 
     public static void dist(Point p1, Point p2) {
-        System.out.println("The distance between point A and point B equal to " + distance(p1, p2));
+        System.out.println("The distance between point A and point B is equal to " + distance(p1, p2));
 
     }
 
