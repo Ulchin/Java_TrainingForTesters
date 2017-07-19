@@ -37,7 +37,6 @@ public class NewContactCreationTests {
     public void addNewContact() {
 
         addNewUser();
-
         fillUserInfo(new ContactData("Poligraf", "P", "Sharikov", "poligraf@poligraf.com", "+7666123456"));
         saveNewUser();
         gotoHomePage();
