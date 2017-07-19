@@ -7,20 +7,18 @@ package ru.training.distanceCalculation.var1;
 
 public class Point {
 
-
-    public double x;
+    public double x; //creation of attributes
     public double y;
 
-    public Point(double x, double y) {
-        this.x = x;
-        this.y = y;
+    public Point(double x, double y) { //initializing attributes with constructor params
+        this.x=x;
+        this.y=y;
+
     }
 
-
-
-    public static double distance(Point p1, Point p2) {
-        return Math.sqrt((p2.x - p1.x) + (p2.y - p1.y));
-    }
+   public double distance(Point p2){    // attributes usage. p2 - object that defines point2 coordinates
+       return Math.sqrt((p2.x - this.x) + (p2.y - this.y));
+   }
 
 
 }
