@@ -38,7 +38,7 @@ public class NewContactCreationTests {
 
         addNewUser();
 
-        fillUserInfo();
+        fillUserInfo(new ContactData("Poligraf", "P", "Sharikov", "poligraf@poligraf.com", "+7666123456"));
         saveNewUser();
         gotoHomePage();
     }
@@ -51,22 +51,22 @@ public class NewContactCreationTests {
         wd.findElement(By.xpath("//div[@id='content']/form/input[21]")).click();
     }
 
-    private void fillUserInfo() {
+    private void fillUserInfo(ContactData contactData) {
         wd.findElement(By.name("firstname")).click();
         wd.findElement(By.name("firstname")).clear();
-        wd.findElement(By.name("firstname")).sendKeys("Poligraf");
+        wd.findElement(By.name("firstname")).sendKeys(contactData.getName());
         wd.findElement(By.name("middlename")).click();
         wd.findElement(By.name("middlename")).clear();
-        wd.findElement(By.name("middlename")).sendKeys("P");
+        wd.findElement(By.name("middlename")).sendKeys(contactData.getMidname());
         wd.findElement(By.name("lastname")).click();
         wd.findElement(By.name("lastname")).clear();
-        wd.findElement(By.name("lastname")).sendKeys("Sharikov");
+        wd.findElement(By.name("lastname")).sendKeys(contactData.getLastname());
         wd.findElement(By.name("email")).click();
         wd.findElement(By.name("email")).clear();
-        wd.findElement(By.name("email")).sendKeys("poligraf@poligraf.com");
+        wd.findElement(By.name("email")).sendKeys(contactData.getEmail());
         wd.findElement(By.name("mobile")).click();
         wd.findElement(By.name("mobile")).clear();
-        wd.findElement(By.name("mobile")).sendKeys("+7666123456");
+        wd.findElement(By.name("mobile")).sendKeys(contactData.getMobile());
     }
 
     private void addNewUser() {
