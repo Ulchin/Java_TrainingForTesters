@@ -13,21 +13,21 @@ public class PointTests {
     public void DistCalc1() {
         Point p1 = new Point(6,7);
         Point p2 = new Point(12,9);
-        Assert.assertEquals(p1.distance(p2), 2.8284271247461903);
+        Assert.assertEquals(p1.distance(p2), 6.324555320336759);
     }
 
     @Test(priority = 1)
     public void DistCalc2() {
         Point p1 = new Point(43,7);
         Point p2 = new Point(67,11);
-        Assert.assertEquals(p1.distance(p2), 5.291502622129181);
+        Assert.assertEquals(p1.distance(p2), 24.331050121192877);
     }
 
     @Test(priority = 2)
     public void DistCalc3() {
         Point p1 = new Point(1,1);
         Point p2 = new Point(12,9);
-        Assert.assertEquals(p1.distance(p2), 4.358898943540674);
+        Assert.assertEquals(p1.distance(p2), 13.601470508735444);
 
     }
 }
