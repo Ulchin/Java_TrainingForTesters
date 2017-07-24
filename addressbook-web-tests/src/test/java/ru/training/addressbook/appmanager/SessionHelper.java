@@ -8,11 +8,13 @@ import org.openqa.selenium.firefox.FirefoxDriver;
  */
 public class SessionHelper {
 
+    private BaseHelper baseHelper;
     private FirefoxDriver wd;
 
     public SessionHelper(FirefoxDriver wd) {
         this.wd = wd;
     }
+
     public void login(String username, String password) {
         wd.findElement(By.name("user")).click();
         wd.findElement(By.name("user")).clear();

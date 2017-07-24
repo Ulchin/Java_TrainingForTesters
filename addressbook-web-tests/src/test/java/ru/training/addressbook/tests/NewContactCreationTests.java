@@ -8,9 +8,9 @@ public class NewContactCreationTests extends TestBase {
     @Test
     public void addNewContact() {
 
-        app.getContactHelper().addNewUser();
-        app.getContactHelper().fillUserInfo(new ContactData("Poligraf", "P", "Sharikov", "poligraf@poligraf.com", "+7666123456"));
-        app.getContactHelper().saveNewUser();
+        app.getContactHelper().getBaseHelper().addNewUser();
+        app.getContactHelper().getBaseHelper().fillUserInfo(new ContactData("Poligraf", "P", "Sharikov", "poligraf@poligraf.com", "+7666123456"));
+        app.getContactHelper().getBaseHelper().saveNewUser();
         app.gotoHomePage();
     }
 

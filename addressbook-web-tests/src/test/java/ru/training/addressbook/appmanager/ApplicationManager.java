@@ -58,11 +58,11 @@ public class ApplicationManager {
     }
 
     public void gotoGroupPage() {
-        navigationHelper.gotoGroupPage();
+        navigationHelper.getBaseHelper().gotoGroupPage();
     }
 
     public void gotoHomePage() {
-        navigationHelper.gotoHomePage();
+        navigationHelper.getBaseHelper().gotoHomePage();
     }
 
 }
