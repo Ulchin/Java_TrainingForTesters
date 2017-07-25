@@ -15,11 +15,12 @@ public class BaseHelper {
         this.wd = wd;
     }
 
-    public void addNewUser() {
+
+    protected void addNewCustomer() {
         wd.findElement(By.linkText("add new")).click();
     }
 
-    public void fillUserInfo(ContactData contactData) {
+    protected void fillCustomerData(ContactData contactData) {
         wd.findElement(By.name("firstname")).click();
         wd.findElement(By.name("firstname")).clear();
         wd.findElement(By.name("firstname")).sendKeys(contactData.getName());
@@ -37,19 +38,19 @@ public class BaseHelper {
         wd.findElement(By.name("mobile")).sendKeys(contactData.getMobile());
     }
 
-    public void saveNewUser() {
+    protected void saveCustomer() {
         wd.findElement(By.xpath("//div[@id='content']/form/input[21]")).click();
     }
 
-    public void returnToGroupPage() {
-        wd.findElement(By.linkText("group page")).click();
-    }
-
-    public void submitGroupCreation() {
+    protected void createGroup() {
         wd.findElement(By.name("submit")).click();
     }
 
-    public void fillGroupForm(GroupData groupData) {
+    protected void initNewGroup() {
+        wd.findElement(By.name("new")).click();
+    }
+
+    protected void fillGroupData(GroupData groupData) {
         wd.findElement(By.name("group_name")).click();
         wd.findElement(By.name("group_name")).clear();
         wd.findElement(By.name("group_name")).sendKeys(groupData.getName());
@@ -61,9 +62,10 @@ public class BaseHelper {
         wd.findElement(By.name("group_footer")).sendKeys(groupData.getFooter());
     }
 
-    public void initGroupCreation() {
-        wd.findElement(By.name("new")).click();
+    public void returnToGroupPage() {
+        wd.findElement(By.linkText("group page")).click();
     }
+
 
     public void gotoGroupPage() {
         wd.findElement(By.linkText("groups")).click();
