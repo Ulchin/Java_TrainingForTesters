@@ -13,6 +13,8 @@ public class NavigationHelper extends HelperBase{
      super(wd);
     }
 
+    //region Navigation (methods)
+
     public void returnToGroupPage() {
        click(By.linkText("group page"));
     }
@@ -25,5 +27,6 @@ public class NavigationHelper extends HelperBase{
     public void gotoHomePage() {
         click(By.linkText("home page"));
     }
+    //endregion
 
 }

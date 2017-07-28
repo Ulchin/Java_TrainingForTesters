@@ -14,7 +14,7 @@ public class GroupHelper extends HelperBase {
         super(wd);
     }
 
-    //region Group
+    //region Group (methods)
     public void submitGroupCreation() {
         click(By.name("submit"));
     }
@@ -29,7 +29,23 @@ public class GroupHelper extends HelperBase {
         type(By.name("group_footer"), groupData.getFooter());
     }
 
-    //endregion
+    public void selectGroup() {
+        click(By.name("selected[]"));
+    }
+
+    public void initGroupModification() {
+        click(By.name("edit"));
+    }
+
+    public void deleteGroup() {
+        click(By.name("delete"));
+    }
+
+    public void submitGroupModification() {
+        click(By.name("update"));
+    }
+
+    //endregion methods
 
 
 }

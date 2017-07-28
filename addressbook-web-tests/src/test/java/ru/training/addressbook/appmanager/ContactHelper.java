@@ -12,6 +12,9 @@ public class ContactHelper extends HelperBase {
     public ContactHelper(FirefoxDriver wd)  {
      super(wd);
     }
+
+    //region Contact (methods)
+
     public void addNewCustomer() {
         click(By.linkText("add new"));
     }
@@ -27,4 +30,5 @@ public class ContactHelper extends HelperBase {
     public void saveCustomer() {
         click(By.xpath("//div[@id='content']/form/input[21]"));
     }
+    //endregion
 }
