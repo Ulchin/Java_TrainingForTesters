@@ -2,15 +2,15 @@ package ru.training.addressbook.appmanager;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.NoAlertPresentException;
-import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.WebDriver;
 
 /**
  * Created by ws03 on 7/28/2017.
  */
 public class HelperBase {
-    protected FirefoxDriver wd; //declaration inside GroupHelper class
+    protected WebDriver wd; //declaration inside GroupHelper class
 
-    public HelperBase(FirefoxDriver wd) {
+    public HelperBase(WebDriver wd) {
         this.wd = wd;
     }
 
