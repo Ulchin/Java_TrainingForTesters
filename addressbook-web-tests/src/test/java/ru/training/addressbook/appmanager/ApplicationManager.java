@@ -1,6 +1,5 @@
 package ru.training.addressbook.appmanager;
 
-import org.openqa.selenium.NoAlertPresentException;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.firefox.FirefoxOptions;
 
@@ -18,15 +17,6 @@ public class ApplicationManager {
     private GroupHelper groupHelper; //declaration on the class level
     private ContactHelper contactHelper;
 
-
-    public static boolean isAlertPresent(FirefoxDriver wd) {
-        try {
-            wd.switchTo().alert();
-            return true;
-        } catch (NoAlertPresentException e) {
-            return false;
-        }
-    }
 
     public void init() {
         wd = new FirefoxDriver(new FirefoxOptions().setLegacy(true).setBinary("C:/Program Files/Mozilla Firefox/firefox.exe"));
@@ -55,14 +45,6 @@ public class ApplicationManager {
 
     public ContactHelper getContactHelper() {
         return contactHelper;
-    }
-
-    public void gotoGroupPage() {
-        navigationHelper.getBaseHelper().gotoGroupPage();
-    }
-
-    public void gotoHomePage() {
-        navigationHelper.getBaseHelper().gotoHomePage();
     }
 
 }

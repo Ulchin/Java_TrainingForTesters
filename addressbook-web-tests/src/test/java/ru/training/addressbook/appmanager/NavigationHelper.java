@@ -1,21 +1,29 @@
 package ru.training.addressbook.appmanager;
 
+import org.openqa.selenium.By;
 import org.openqa.selenium.firefox.FirefoxDriver;
 
 /**
  * Created by ws03 on 7/24/2017.
  */
-public class NavigationHelper {
+public class NavigationHelper extends HelperBase{
 
-    private  BaseHelper baseHelper;
-    private FirefoxDriver wd;
 
     public NavigationHelper(FirefoxDriver wd) {
-        baseHelper = new BaseHelper(wd);
-        this.wd = wd;
+     super(wd);
     }
 
-    public BaseHelper getBaseHelper() {
-        return baseHelper;
+    public void returnToGroupPage() {
+       click(By.linkText("group page"));
     }
+
+
+    public void gotoGroupPage() {
+        click(By.linkText("groups"));
+    }
+
+    public void gotoHomePage() {
+        click(By.linkText("home page"));
+    }
+
 }

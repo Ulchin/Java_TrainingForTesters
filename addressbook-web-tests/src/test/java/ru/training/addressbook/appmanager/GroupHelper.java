@@ -1,37 +1,35 @@
 package ru.training.addressbook.appmanager;
 
+import org.openqa.selenium.By;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import ru.training.addressbook.model.GroupData;
 
 /**
  * Created by ws03 on 7/21/2017.
  */
-public class GroupHelper {
+public class GroupHelper extends HelperBase {
 
-    private BaseHelper baseHelper;
-    private FirefoxDriver wd; //declaration inside GroupHelper class
 
-    public GroupHelper(FirefoxDriver wd) {//constructor in GroupHelper initialize wd with local value, wd can be used now
-        baseHelper = new BaseHelper(wd);
-        this.wd = wd;
+    public GroupHelper(FirefoxDriver wd) {
+        super(wd);
     }
 
+    //region Group
     public void submitGroupCreation() {
-        baseHelper.createGroup();
+        click(By.name("submit"));
     }
-
-
-    public void fillGroupForm(GroupData groupData) {
-        baseHelper.fillGroupData(groupData);
-    }
-
 
     public void initGroupCreation() {
-        baseHelper.initNewGroup();
+        click(By.name("new"));
     }
 
-
-    public BaseHelper getBaseHelper() {
-        return baseHelper;
+    public void fillGroupForm(GroupData groupData) {
+        type(By.name("group_name"), groupData.getName());
+        type(By.name("group_header"), groupData.getHeader());
+        type(By.name("group_footer"), groupData.getFooter());
     }
+
+    //endregion
+
+
 }

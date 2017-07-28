@@ -1,33 +1,30 @@
 package ru.training.addressbook.appmanager;
 
+import org.openqa.selenium.By;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import ru.training.addressbook.model.ContactData;
 
 /**
  * Created by ws03 on 7/24/2017.
  */
-public class ContactHelper {
+public class ContactHelper extends HelperBase {
 
-    private BaseHelper baseHelper;
-    private FirefoxDriver wd;
-
-    public ContactHelper(FirefoxDriver wd) {
-        baseHelper = new BaseHelper(wd);
-        this.wd = wd;
+    public ContactHelper(FirefoxDriver wd)  {
+     super(wd);
     }
-    public void addNewUser() {
-        baseHelper.addNewCustomer();
+    public void addNewCustomer() {
+        click(By.linkText("add new"));
     }
 
-    public void fillUserInfo(ContactData contactData) {
-        baseHelper.fillCustomerData(contactData);
+    public void fillCustomerData(ContactData contactData) {
+        type(By.name("firstname"),contactData.getName());
+        type(By.name("middlename"),contactData.getMidname());
+        type(By.name("lastname"),contactData.getLastname());
+        type(By.name("email"),contactData.getEmail());
+        type(By.name("mobile"),contactData.getMobile());
     }
 
-    public void saveNewUser() {
-        baseHelper.saveCustomer();
-    }
-
-    public BaseHelper getBaseHelper() {
-        return baseHelper;
+    public void saveCustomer() {
+        click(By.xpath("//div[@id='content']/form/input[21]"));
     }
 }
