@@ -24,6 +24,14 @@ public class HelperBase {
         wd.findElement(locator).click();
     }
 
+    protected void select(By locator) { wd.findElement(locator).isSelected();}
+
+
+
+
+    protected void closePopup() {wd.switchTo().alert().accept();}
+
+
     public boolean isAlertPresent() {
         try {
             wd.switchTo().alert();

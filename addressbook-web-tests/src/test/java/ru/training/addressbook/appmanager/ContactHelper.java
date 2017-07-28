@@ -30,5 +30,24 @@ public class ContactHelper extends HelperBase {
     public void saveCustomer() {
         click(By.xpath("//div[@id='content']/form/input[21]"));
     }
+
+    public void editContact() {
+        click(By.xpath("//table[@id='maintable']/tbody/tr[3]/td[8]/a/img"));
+    }
+
+    public void updateCustomerData() {
+        click(By.xpath("//div[@id='content']/form[1]/input[22]"));
+    }
+
+    public void selectCustomer() {
+        select(By.xpath("//input[@id='1']"));
+    }
+
+    public void deleteCustomer() {
+        click(By.xpath("//div[@id='content']/form[2]/div[2]/input"));
+    }
+
+    public  void acceptDeletion(){ closePopup();}
+
     //endregion
 }
