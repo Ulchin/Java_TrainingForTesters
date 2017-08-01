@@ -2,6 +2,7 @@ package ru.training.addressbook.appmanager;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.NoAlertPresentException;
+import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebDriver;
 
 /**
@@ -15,21 +16,34 @@ public class HelperBase {
     }
 
     protected void type(By locator, String text) {
-        wd.findElement(locator).click();
-        wd.findElement(locator).clear();
-        wd.findElement(locator).sendKeys(text);
+        if (text != null) {
+            String existingText = wd.findElement(locator).getAttribute("value"); //only for input fields. in other case - getText
+            if (!text.equals(existingText)) {
+                wd.findElement(locator).click();
+                wd.findElement(locator).clear();
+                wd.findElement(locator).sendKeys(text);
+            }
+        }
+
+
     }
 
     protected void click(By locator) {
         wd.findElement(locator).click();
     }
 
-    protected void select(By locator) { wd.findElement(locator).isSelected();}
+    protected void entry(By locator, By xPath) {
+        wd.findElement(locator).findElement(xPath).click();
+    }
+
+    protected void select(By locator) {
+        wd.findElement(locator).isSelected();
+    }
 
 
-
-
-    protected void closePopup() {wd.switchTo().alert().accept();}
+    protected void closePopup() {
+        wd.switchTo().alert().accept();
+    }
 
 
     public boolean isAlertPresent() {
@@ -37,6 +51,15 @@ public class HelperBase {
             wd.switchTo().alert();
             return true;
         } catch (NoAlertPresentException e) {
+            return false;
+        }
+    }
+
+    protected boolean isElementPresent(By locator) { //helps to switch between form with Group field and form without it.
+        try {
+            wd.findElement(locator);
+            return true;
+        } catch (NoSuchElementException ex) {
             return false;
         }
     }

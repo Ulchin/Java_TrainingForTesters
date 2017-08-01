@@ -9,9 +9,11 @@ import ru.training.addressbook.model.GroupData;
  */
 public class GroupHelper extends HelperBase {
 
+private NavigationHelper navigationHelper;
 
     public GroupHelper(WebDriver wd) {
         super(wd);
+        navigationHelper = new NavigationHelper(wd);
     }
 
     //region Group (methods)
@@ -44,6 +46,19 @@ public class GroupHelper extends HelperBase {
     public void submitGroupModification() {
         click(By.name("update"));
     }
+
+    public void createGroup(GroupData group) {
+        initGroupCreation();
+        fillGroupForm(group);
+        submitGroupCreation();
+        navigationHelper.returnToGroupPage();
+    }
+
+    public boolean isThereAGroup() {
+        return isElementPresent(By.name("selected[]"));
+
+    }
+
 
     //endregion methods
 

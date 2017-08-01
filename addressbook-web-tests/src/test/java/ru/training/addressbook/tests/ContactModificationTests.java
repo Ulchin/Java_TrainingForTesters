@@ -12,11 +12,16 @@ public class ContactModificationTests extends TestBase {
     @Test
     public void testContactModification() {
         app.getNavigationHelper().gotoHome();
+        if (! app.getContactHelper().isThereAContact()) {
+            app.getContactHelper().createContact(new ContactData("Poligraf", "P", "Sharikov", "poligraf@poligraf.com", "+7666123456", "[none]"), true);
+        }
         app.getContactHelper().editContact();
-        app.getContactHelper().fillCustomerData(new ContactData("", "Poligraphovich", "", "", ""));
+        app.getContactHelper().fillCustomerData(new ContactData("", "Poligraphovich", "", "", "", "[none]"), false);
         app.getContactHelper().updateCustomerData();
         app.getNavigationHelper().gotoHome();
 
 
     }
+
+
 }

@@ -9,7 +9,7 @@ public class NewContactCreationTests extends TestBase {
     public void addNewContact() {
 
         app.getContactHelper().addNewCustomer();
-        app.getContactHelper().fillCustomerData(new ContactData("Poligraf", "P", "Sharikov", "poligraf@poligraf.com", "+7666123456"));
+        app.getContactHelper().fillCustomerData(new ContactData("Poligraf", "P", "Sharikov", "poligraf@poligraf.com", "+7666123456", "[none]"), true);
         app.getContactHelper().saveCustomer();
         app.getNavigationHelper().gotoHomePage();
     }
